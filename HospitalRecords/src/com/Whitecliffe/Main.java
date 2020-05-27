@@ -16,19 +16,26 @@ public class Main {
         obtainRecords(patient1);
 
         boolean exit = false;
-        do {
+        while(!exit) {
             System.out.println("\nPress S for search, Press E for exit");
-            String response = scan.nextLine();
-            if (response.equals("S") || response.equals("s")) {
-                LookForID(patient1, scan);
-            }else if (response.equals("E") || response.equals("e")) {
-                System.out.println("Bye...");
-                exit = true;
-            }else if (response.equals("show")){
-                ShowPatients(patient1);
-            }else { System.out.println("Input 'S' or 'E'"); }
+            String response = scan.nextLine().toUpperCase();
+            switch (response) {
+                case "S":
+                    LookForID(patient1, scan);
+                    break;
+                case "E":
+                    System.out.println("Bye...");
+                    exit = true;
+                    break;
+                case "SHOW":
+                    ShowPatients(patient1);
+                    break;
+                default:
+                    System.out.println("Input 'S' or 'E'");
+                    break;
+            }
 
-        } while(!exit);
+        }
 
 
     }
@@ -64,7 +71,7 @@ public class Main {
     public static void LookForID(ArrayList<Patient> patient, Scanner scan){
         System.out.println("\nEnter Patient ID to search");
 
-        String ID = scan.nextLine();
+        String ID = scan.nextLine().toUpperCase();
         boolean found = false;
 
         for(Patient i : patient) {
@@ -72,24 +79,27 @@ public class Main {
                 found = true;
                 System.out.println(i.toString());
                 System.out.println("Would you like to remove the patient's record(s)?\n" + "Y or N?");
-                String response = scan.nextLine();
+                String response = scan.nextLine().toUpperCase();
 
-                if (response.equals("Y") || response.equals("y")){
-                    patient.remove(patient.indexOf(i));
-                    //System.out.println(patient.indexOf(i));
+                if (response.equals("Y")){
+                    try {
+                        patient.remove(i);
+                    }catch(Exception e){
+                        System.out.println("Was not able to delete the record\nError: " + e);
+                    }
                     System.out.println("Record(s) removed successfully");
-                }else if (response.equals("N") || response.equals("n")){
+                    break;
+                }else if (response.equals("N")){
                     System.out.println("Record(s) not removed");
                 }
             }
         }
         if (!found) { System.out.println("ID Not Found!"); }
-
     }
 
     public static void ShowPatients(ArrayList<Patient> patient){
         for (Patient i : patient) {
-            System.out.println("\n" + i.toString());
+            System.out.println( "\nIndex Number: " + patient.indexOf(i)+ "\n" + i.toString());
         }
     }
 
