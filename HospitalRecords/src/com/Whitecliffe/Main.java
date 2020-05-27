@@ -41,7 +41,7 @@ public class Main {
     }
 
     public static void obtainRecords(ArrayList<Patient> patient){
-        String path = "C:\\Users\\vitor\\Projects\\DataStructures_and_Algorithms\\HospitalRecords\\src\\com\\Whitecliffe\\ListOfPatients.txt";
+        String path = "src\\com\\Whitecliffe\\ListOfPatients.txt";
         LineNumberReader lr = null;
         String[] oneRecord = new String[4];
 
