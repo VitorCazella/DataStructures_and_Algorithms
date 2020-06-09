@@ -1,15 +1,31 @@
 package com.company;
 
 public class Sorting {
-    public void bubbleSort(String[] arr)
+
+    public void bubbleSortByName(Customer[] arr)
     {
         int n = arr.length;
         for (int i = 0; i < n -1; i++){
             for (int j = 0; j < n -i -1; j++) {
-                if (arr[j].compareTo(arr[j + 1]) > 0) {
+                if (arr[j].getName().compareTo(arr[j + 1].getName()) < 0) {
                     //if (arr[j] > arr[j + 1]) {
                     // swap arr[j + 1] and arr[i]
-                    String temp = arr[j];
+                    Customer temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+    }
+    public void bubbleSortByRate(Customer[] arr)
+    {
+        int n = arr.length;
+        for (int i = 0; i < n -1; i++){
+            for (int j = 0; j < n -i -1; j++) {
+                if (arr[j].getRate() > arr[j + 1].getRate()) {
+                    // swap arr[j + 1] and arr[i]
+                    Customer temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
                 }
@@ -18,9 +34,4 @@ public class Sorting {
 
     }
 
-    public void showArray(String[] arr){
-        for (String name: arr) {
-            System.out.println(name);
-        }
-    }
 }
