@@ -23,9 +23,9 @@ public class Main {
     }
     
     public static void showArray(int arr[]){
-        for (:
-             ) {
-            
+        for (int item : arr) {
+            System.out.println(item);
         }
     }
 }
+
