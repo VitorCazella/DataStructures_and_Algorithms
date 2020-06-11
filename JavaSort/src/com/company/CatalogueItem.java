@@ -24,7 +24,7 @@ class CatalogueItem {
     }
     
     // constructor
-    public CatalogueItem(Integer newId,String newName, String newCategory){
+    public CatalogueItem(Integer newId, String newName, String newCategory){
 
         id = newId;
         itemName = newName;

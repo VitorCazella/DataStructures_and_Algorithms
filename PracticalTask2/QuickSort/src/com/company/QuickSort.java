@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.company;
 
 /**
@@ -68,24 +63,24 @@ public class QuickSort {
 
  
     /* Prints the array */
-    void printArray(CatalogueItem arr[])
+    void printArray(CatalogueItem[] arr)
     {
-        int n = arr.length;
-        for (int i=0; i<n; ++i)
+        for (CatalogueItem catalogueItem : arr)
             System.out.print(
-                    "id: " + arr[i].getItemId() + " "
-                    + "name: " + arr[i].getItemName() + " "
-                    + "category: " + arr[i].getCategory() + "\n");
-        System.out.println();
-        System.out.println();
+                    "id: " + catalogueItem.getItemId() + " "
+                  + "name: " + catalogueItem.getItemName() + " "
+                  + "category: " + catalogueItem.getCategory() + "\n");
+        System.out.println("\n");
     }
     
     // Driver method to test above
-    public static void main(String args[])
+    public static void main(String[] args)
     {
+        long startTime = System.nanoTime();
+
         QuickSort ob = new QuickSort();
         
-        CatalogueItem arr[] = {
+        CatalogueItem[] arr = {
             new CatalogueItem( 3, "Life of Pi","Books"),
             new CatalogueItem( 7, "Deelongie 4 way toaster","Home and Kitchen"),
             new CatalogueItem( 2, "Glorbarl knife set","Home and Kitchen"),
@@ -102,5 +97,14 @@ public class QuickSort {
         ob.sort(arr);
         System.out.println("The Quick Sorted array is");
         ob.printArray(arr);
+
+        long endTime = System.nanoTime();
+
+        long timeElapsed = endTime - startTime;
+        float milli = timeElapsed/1000000;
+
+        System.out.println("Execution time in nanoseconds  : " + timeElapsed);
+        System.out.println("Execution time in microseconds : " + timeElapsed/1000);
+        System.out.println("Execution time in milliseconds : " + milli);
     }
 }
