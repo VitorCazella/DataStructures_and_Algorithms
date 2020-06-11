@@ -106,5 +106,8 @@ public class QuickSort {
         System.out.println("Execution time in nanoseconds  : " + timeElapsed);
         System.out.println("Execution time in microseconds : " + timeElapsed/1000);
         System.out.println("Execution time in milliseconds : " + milli);
+
+        // Give an explanation about the difference between QuickSort and BubbleSort
+
     }
 }
