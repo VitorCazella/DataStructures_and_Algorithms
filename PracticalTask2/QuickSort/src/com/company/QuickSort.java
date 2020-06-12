@@ -36,7 +36,6 @@ public class QuickSort {
             while (items[j].getItemId() > pivot) {
                 j--;
             }
-
             // If we have found a value in the left list which is larger than
             // the pivot element and if we have found a value in the right list
             // which is smaller than the pivot element then we exchange the
@@ -101,13 +100,17 @@ public class QuickSort {
         long endTime = System.nanoTime();
 
         long timeElapsed = endTime - startTime;
-        float milli = timeElapsed/1000000;
 
         System.out.println("Execution time in nanoseconds  : " + timeElapsed);
         System.out.println("Execution time in microseconds : " + timeElapsed/1000);
-        System.out.println("Execution time in milliseconds : " + milli);
 
         // Give an explanation about the difference between QuickSort and BubbleSort
+        System.out.println("\nResult: After testing both programs a few time, is really clear to see" +
+                "that the Quick Sort program \nends faster than our Bubble Sort program, " +
+                "and that is due to be using different methods of sorting,\n while Bubble Sorting " +
+                "goes through all the array, most time more than once, Quick Sorting works\n more " +
+                "efficiently getting checking all the numbers before the pivot in case they are smaller" +
+                "than\n its number.");
 
     }
 }
